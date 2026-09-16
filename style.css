@@ -1,0 +1,47 @@
+body{margin: 0;}
+@font-face {
+    font-family: 'Alegreya' ;
+    src: url(./font/Alegreya/Alegreya.ttf);
+}
+.text_20p{font-family: 'Alegreya'; font-size: 20px;}
+.text_24p{font-family: 'Alegreya'; font-size: 24px;}
+.text_32p{font-family: 'Alegreya'; font-size: 32px;}
+.text_36p{font-family: 'Alegreya'; font-size: 36px;}
+.text_40p{font-family: 'Alegreya'; font-size: 40px;}
+.text_48p{font-family: 'Alegreya'; font-size: 48px;}
+
+
+/* div{border: solid 1px; } */
+a{ color: black; text-decoration: none;}
+
+/*начало хедера*/
+.hed{width: 100%; height: 150px; display: flex;}
+.knop1{font-family: 'Alegreya'; font-size: 32px; margin-left: 740px; margin-top: 58px;}
+.knop2{font-family: 'Alegreya'; font-size: 32px;margin-left: 100px;margin-top: 58px;}
+.knop3{font-family: 'Alegreya'; font-size: 32px;margin-left: 100px;margin-top: 58px;}
+.knop4{font-family: 'Alegreya'; font-size: 32px; text-align: center; text-color: #FFFFFF;}
+.fon_knop4{width: 328px; height: 44px; border-radius: 12px;margin-left: 100px;margin-top: 58px; background-color: #163658;}
+.a_kn{color: #FFFFFF;}
+/*конец хедера*/
+
+/*начало 1 блока*/
+.blok_1{display: flex; width: 100%; height: 600px;}
+.logo{width: 426px; height: 207px; background-image: url(./img_main/logo_TexnoSoft.png); margin-top: 79px; margin-left: 220px; }
+.zagol1{font-family:'Alegreya'; font-size: 40px; margin-top: 15px; margin-left: 162px;}
+.tex_avtoriz{font-family:'Alegreya'; font-size: 36px;  margin-left: 162px;}
+.dekor_1_bloka{margin-left: 78px; width: 1059px; height: 562px; background-image: url(./img_main/dekor_img_kopmp\ \(1\).png);} 
+
+/*конец 1 блока*/
+
+/*начало 2 блока*/
+.zag_2_bloka{text-align: center;  z-index: -1; position: relative;bottom: 35px;}
+.tex_opisanie{text-align: center;}
+/*конец 2 блока*/
+
+/*начало 3 блока*/
+.zag_3_bloka{text-align: center; margin-top: 66px; }
+.roditel_1_blok3_for_bloks{ margin-left: 116px; margin-top: 51px; width: 1590px; height: 300px; display: flex;}
+.plashka_advantages{width: 500px; height: 299px; border: solid 2px #A0C4D3; border-radius: 10px; margin-left: 47px;} 
+.zag_pladh{margin-top: 51px; text-align: center;}
+.text_plash{margin-top: 8px; text-align: center;}
+/*конец 3 блока*/
