@@ -1,4 +1,4 @@
-body{margin: 0;}
+body{margin: 0;  overflow-x: hidden;}
 @font-face {
     font-family: 'Alegreya' ;
     src: url(./font/Alegreya/Alegreya.ttf);
@@ -10,16 +10,16 @@ body{margin: 0;}
 .text_40p{font-family: 'Alegreya'; font-size: 40px;}
 .text_48p{font-family: 'Alegreya'; font-size: 48px;}
 
-
-/* div{border: solid 1px; } */
+/* 
+div{border: solid 1px; } */
 a{ color: black; text-decoration: none;}
 
 /*начало хедера*/
-.hed{width: 100%; height: 150px; display: flex;}
+.hed{width: 1920px; height: 150px; display: flex;}
 .knop1{font-family: 'Alegreya'; font-size: 32px; margin-left: 740px; margin-top: 58px;}
 .knop2{font-family: 'Alegreya'; font-size: 32px;margin-left: 100px;margin-top: 58px;}
 .knop3{font-family: 'Alegreya'; font-size: 32px;margin-left: 100px;margin-top: 58px;}
-.knop4{font-family: 'Alegreya'; font-size: 32px; text-align: center; text-color: #FFFFFF;}
+.knop4{font-family: 'Alegreya'; font-size: 32px; text-align: center; }
 .fon_knop4{width: 328px; height: 44px; border-radius: 12px;margin-left: 100px;margin-top: 58px; background-color: #163658;}
 .a_kn{color: #FFFFFF;}
 /*конец хедера*/
@@ -57,6 +57,33 @@ a{ color: black; text-decoration: none;}
 /*конец 4 блока*/
 
 /*начало футера*/
-.fyt{width: 100%; height: 375px; background-color:#A0C4D3;}
+.fyt{width: 100%; height: 375px; background-color:#A0C4D3; display: flex;}
 
+.blok_1_foot{width: 513px; height: 375px;}
+.logo_foot{width: 382px; height: 170px; background-image: url(./img_main/logo_footer.png); margin-top: 109px; margin-left: 72px;}
+.podpis_foot {text-align: center; margin-top: 20px;}
+
+.blok_2foot{width: 841px; height: 375px; display: flex; flex-wrap: wrap;}
+.for_knop_foot{width: 180px; height: 151px; margin-top: 130px; margin-left: 204px;}
+.knop_foot1{text-align: center;}
+
+.for_cot-cet_foot{width: 115px; height: 273px; margin-left: 246px; margin-top: 31px;}
+.logo_max{width: 70px; height: 70px; background-image: url(./img_main/max_logo.png); margin-top: 14px; margin-left: 22px;}
+.logo_pocht{width: 72px; height: 54px; background-image: url(./img_main/logo_xz.png);  margin-top: 25px; margin-left: 22px;}
+.logo_vk{width: 74px; height: 74px; background-image: url(./img_main/logo_vk.png); margin-top: 22px; margin-left: 22px;}
+.text_foot2{ text-align: center; margin-left: 86px;}
+
+.blok_3foot{width: 562px; height: 375px; }
+.karta_foot{margin-left: 45px; margin-top: 83px; width: 473px; height: 163px; background-image: url(./img_main/karta.png);}
+.fon_knop_foot{width: 328px; height: 44px; border-radius: 12px;margin-left: 125px;margin-top: 31px; background-color: #163658;}
 /*конец футера*/
+
+/*декоративные кружки*/
+.kryg_dekor{border-radius: 50%; background-color: #A0C4D3;}
+.kryg1{width: 272px; height: 272px; z-index: -1; position: absolute; top: 856px; left: -50px;}
+.kryg2{width: 94px; height: 94px; z-index: -1; position: absolute; top: 1161px; left: 1651px;}
+.kryg3{width: 205px; height: 205px; z-index: -1; position: absolute;top: 1929px; left: 20px;}
+.kryg4{width: 60px; height: 60px; z-index: -1; position: absolute; top: 1947px; left: 1119px;}
+.kryg5{width: 119px; height: 119px; z-index: -1; position: absolute;top: 1940px; left: 1174px;}
+.kryg6{width: 272px; height: 272px; z-index: -1; position: absolute;top: 1721px; right: -119px;}
+.kryg7{width: 94px; height: 94px; z-index: -1; position: absolute;top: 2216px; left: 187px;}
