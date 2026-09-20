@@ -1,0 +1,62 @@
+body{margin: 0;  overflow-x: hidden;}
+@font-face {
+    font-family: 'Alegreya' ;
+    src: url(../font/Alegreya/Alegreya.ttf);
+}
+.text_20p{font-family: 'Alegreya'; font-size: 20px;}
+.text_24p{font-family: 'Alegreya'; font-size: 24px;}
+.text_32p{font-family: 'Alegreya'; font-size: 32px;}
+.text_36p{font-family: 'Alegreya'; font-size: 36px;}
+.text_40p{font-family: 'Alegreya'; font-size: 40px;}
+.text_48p{font-family: 'Alegreya'; font-size: 48px;}
+
+/* 
+div{border: solid 1px; } */
+a{ color: black; text-decoration: none;}
+
+/*начало хедера*/
+.hed{width: 1920px; height: 150px; display: flex;}
+.knop1{font-family: 'Alegreya'; font-size: 32px; margin-left: 740px; margin-top: 58px;}
+.knop2{font-family: 'Alegreya'; font-size: 32px;margin-left: 100px;margin-top: 58px;}
+.knop3{font-family: 'Alegreya'; font-size: 32px;margin-left: 100px;margin-top: 58px;}
+.knop4{font-family: 'Alegreya'; font-size: 32px; text-align: center; }
+.fon_knop4{width: 328px; height: 44px; border-radius: 12px;margin-left: 100px;margin-top: 58px; background-color: #163658;}
+.a_kn{color: #FFFFFF;}
+/*конец хедера*/
+
+.blok1{width: 1920px; height: 695px; display: flex;}
+
+.razdel_1_blok1{width: 1026px; height: 695px;}
+.logo{width: 697px; height: 401px; background-image: url(./img_kontakt/logo_kontakt\ \(5\).png); margin-top: 217px; margin-left: 172px;}
+.kart{width: 865px; height: 306px; background-image: url(./img_kontakt/kart_kontakt.png);}
+.tex1{margin-top: 40px;}
+.tex-imail{margin-top: 81px;}
+
+/*начало декора*/
+.dek_kryg{border-radius: 50%; background-color: #A0C4D3;}
+.dek1{width:154px ;height:154px ; z-index: -1; position: absolute; top:64px ; left:30px ;}
+.dek2{width: 52px; ;height: 52px; ; z-index: -1; position: absolute; top:218px ; left: 168px ;}
+.dek3{width:88px ;height:88px ; z-index: -1; position: absolute; top:155px ; left:239px ;}
+.dek4{width: 154px;height: 154px; z-index: -1; position: absolute; top:840px ; left:1660px ;}
+.dek5{width: 88px;height:88px ; z-index: -1; position: absolute; top:754px ; left: 1602px ;}
+/*начало футера*/
+.fyt{width: 100%; height: 375px; background-color:#A0C4D3; display: flex; margin-top: 181px;} 
+
+.blok_1_foot{width: 513px; height: 375px;}
+.logo_foot{width: 382px; height: 170px; background-image: url(./img_kontakt/logo_footer.png); margin-top: 109px; margin-left: 72px;}
+.podpis_foot {text-align: center; margin-top: 20px;}
+
+.blok_2foot{width: 841px; height: 375px; display: flex; flex-wrap: wrap;}
+.for_knop_foot{width: 180px; height: 151px; margin-top: 130px; margin-left: 204px;}
+.knop_foot1{text-align: center;}
+
+.for_cot-cet_foot{width: 115px; height: 273px; margin-left: 246px; margin-top: 31px;}
+.logo_max{width: 70px; height: 70px; background-image: url(./img_kontakt/max_logo.png); margin-top: 14px; margin-left: 22px;}
+.logo_pocht{width: 72px; height: 54px; background-image: url(./img_kontakt/logo_xz.png);  margin-top: 25px; margin-left: 22px;}
+.logo_vk{width: 74px; height: 74px; background-image: url(./img_kontakt/logo_vk.png); margin-top: 22px; margin-left: 22px;}
+.text_foot2{ text-align: center; margin-left: 86px;}
+
+.blok_3foot{width: 562px; height: 375px; }
+.karta_foot{margin-left: 45px; margin-top: 83px; width: 473px; height: 163px; background-image: url(./img_kontakt/karta.png);}
+.fon_knop_foot{width: 328px; height: 44px; border-radius: 12px;margin-left: 125px;margin-top: 31px; background-color: #163658;}
+/*конец футера*/

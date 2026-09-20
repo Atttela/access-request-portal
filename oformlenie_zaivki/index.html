@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <header class="hed"> <!--начало хедера, вариант 2-->
+
+        <a href=""><div class="logo_hed"></div></a>
+<div class="knop1"> <a href=""> О компании </a> </div>
+<div class="knop2"> <a href=""> Контакты </a> </div>
+<div class="knop3"> <a href="" > Заявки </a> </div>
+
+<div class="fon_knop4"> <div class="knop4" style="color: #FFFFFF;"> <a href=""class="a_kn"> Вход/Регистрация </a> </div></div> <!--кнопка регистрации-->
+    </header> <!--конец хедера, вариант 2-->
+
+<div class="blok_1"> <!--начало блока 1-->
+<div class="zag1 text_40p"> <b>Оставьте заявку и мы свяжемся с вами</b></div>
+<div class="tex1 text_36p"> Пожалуйста, заполните все поля без ошибок и мы быстро <br> обработаю ваш запрос</div>
+</div><!--конец блока 1-->
+
+<div class="blok2"> <!--блок 2 начало-->
+
+    <div class="for_1blok_form"><!--начало 1 блока формы-->
+        <div class="zag_rod">
+            <div class="dek number_fon text_48p"> <b>1</b></div>
+            <div class="tex2 text_36p"> <b>Основные данные</b></div>
+        </div>
+
+<form >
+        <div class="row"> <!--строка 1 в форме начало-->
+    <div class="field">
+    <label class="text_20p"><b>ФИО*</b></label>
+    <input type="text">
+    </div>
+
+    
+    <div class="field">
+    <label class="text_20p"><b>email*</b></label>
+    <input type="email">
+    </div>
+
+
+    <div class="field">
+    <label class="text_20p"> <b>Телефон*</b></label>
+    <input type="number">
+    </div>
+  </div><!--строка 1 в форме конец-->
+
+  <div class="row"><!--строка 2 в форме начало-->
+    <div class="field wide">
+    <label class="text_20p"> <b>Должность</b></label>
+    <input type="text">
+    </div>
+
+
+    <div class="field wide">
+    <label class="text_20p"><b>Отдел/Департамент</b></label>
+    <input type="text">
+    </div>
+  </div> <!--строка 2 в форме конец-->
+</form></div> <!--конец 1 блока в форме-->
+
+   
+
+<!--начало 2 блока формы-->
+<div class="for_2blok_form">
+<div class="zag_rod">
+            <div class="dek number_fon text_48p"> <b>2</b></div>
+            <div class="tex2 text_36p"> <b>Параметры заявки</b></div>
+        </div>
+
+	<div class="rod_raz_">
+		<div class="text_20p">Доступ к</div>
+		<div class="radio-group">
+			<label><input type="radio" name="dostup" value="1c"> Доступ к 1С</label>
+			<label><input type="radio" name="dostup" value="pochta"> Доступ к корпоративной почте</label>
+			<label><input type="radio" name="dostup" value="crm"> Доступ к CRM</label>
+			<label><input type="radio" name="dostup" value="server"> Доступ к файловому серверу</label>
+			<label><input type="radio" name="dostup" value="drugoe"> Другие</label>
+		</div>
+	</div>
+	<div class="rod_raz_">
+		<div class="text_20p">Приоритет</div>
+		<div class="radio-group">
+			<label><input type="radio" name="prioritet" value="nizkiy"> Низкий(плановый)</label>
+			<label><input type="radio" name="prioritet" value="sredniy"> Средний(стандартный)</label>
+			<label><input type="radio" name="prioritet" value="visokiy"> Высокий</label>
+		</div>
+		<div class="text_20p" style="margin-top: 20px;">Желаемая дата предоставления доступа</div>
+		<input type="date" style="margin-top: 10px; width: 200px;">
+	</div>
+	<div class="rod_raz_">
+		<div class="text_20p">Срок предоставления доступа</div>
+		<div class="radio-group">
+			<label><input type="radio" name="srok" value="bessrochno"> Безсрочно</label>
+			<label><input type="radio" name="srok" value="1mes"> 1 месяц</label>
+			<label><input type="radio" name="srok" value="3mes"> 3 месяца</label>
+			<label><input type="radio" name="srok" value="6mes"> 6 месяцев</label>
+			<label><input type="radio" name="srok" value="1god"> 1 год</label>
+		</div>
+	</div>
+</div>
+<!--конец 2 блока формы-->
+
+<!--начало 3 блока формы-->
+<div class="for_3blok_form">
+	<div class="zag_rod">
+            <div class="dek number_fon text_48p"> <b>3</b></div>
+            <div class="tex2 text_36p"> <b>Цель и комментарии</b></div>
+        </div>
+
+        <div class="row">
+	<div class="field">
+    <label class="text_20p"><b>Цели</b></label>
+    <input type="text">
+    </div>
+
+
+    <div class="field">
+    <label class="text_20p"> <b>комментарии</b></label>
+    <input type="text">
+    </div>
+
+    </div>
+
+</div><!--конец 3 блока формы-->
+
+
+
+</div><!--блок 2 конец-->
+        <footer class="fyt"> <!--начало футера-->
+
+<div class="blok_1_foot"> <!--1 блок футера-->
+ <a href=""><div class="logo_foot"></div></a>
+<div class="podpis_foot text_20p"> <b>2026 ТехноСофт© - Все права защищены</b></div>
+</div> <!--1 блок футера конец-->
+
+<div class="blok_2foot"> <!--2 блок футера-->
+
+    <div class="for_knop_foot"> <!--начало дива для кнопок футера-->
+    <div class="knop_foot1 "> <a href="" class="text_32p"> О компании</a> </div>
+    <div class="knop_foot1 "> <a href="" class="text_32p"> Контакты</a> </div>
+    <div class="knop_foot1 "> <a href="" class="text_32p"> Заявки</a> </div>
+    </div> <!--конец дива для кнопок футера-->
+
+    
+    <div class="for_cot-cet_foot"> <!--начало родителя для сотсетей во втором блоке-->
+<a href=""> <div class="logo_max"> </div></a>
+<a href=""> <div class="logo_pocht"> </div></a>
+<a href=""> <div class="logo_vk"> </div></a>
+    </div><!--конец родителя для сотсетей во втором блоке-->
+    <div class="text_20p text_foot2"> <b>Улица 40 лет Победы, 3/1, с. Кашкарагаиха, Тальменский район, Алтайский край.</b></div>
+</div> <!--2 блок футера конец-->
+
+<div class="blok_3foot"> <!--3 блок футера-->
+    <div class="karta_foot"></div>
+<div class="fon_knop_foot"> <div class="knop4" style="color: #FFFFFF;"> <a href=""class="a_kn"> Вход/Регистрация </a> </div></div> <!--кнопка регистрации-->
+</div> <!--3 блок футера конец-->
+
+    </footer> <!-- конец футера-->
+    
+</body>
+<script src="script.js"></script>
+</html>

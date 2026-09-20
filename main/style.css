@@ -1,7 +1,7 @@
 body{margin: 0;  overflow-x: hidden;}
 @font-face {
     font-family: 'Alegreya' ;
-    src: url(./font/Alegreya/Alegreya.ttf);
+    src: url(../font/Alegreya/Alegreya.ttf);
 }
 .text_20p{font-family: 'Alegreya'; font-size: 20px;}
 .text_24p{font-family: 'Alegreya'; font-size: 24px;}
