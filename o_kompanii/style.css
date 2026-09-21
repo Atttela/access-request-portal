@@ -35,7 +35,8 @@ left: 751px; top: 200px;}
 
 /*начало 2 блока*/
 .blok_2{display: flex; margin-top: 63px; margin-top: 131px;}
-.roditel_kartoch{width: 405px; height: 509px; margin-left: 164px; border: #A0C4D3 solid 2px;border-radius: 10px; }
+.roditel_kartoch{width: 405px; height: 509px; margin-left: 184px; border: #A0C4D3 solid 2px;border-radius: 10px;transition: box-shadow 0.8s ease;  }
+.roditel_kartoch:hover {box-shadow: 10px 11px 4px #A0C4D3; }
 .zag_kart{margin-top: 83px; text-align: center;}
 .tex2{margin-top: 37px; text-align: center;}
 

@@ -41,7 +41,8 @@ a{ color: black; text-decoration: none;}
 /*начало 3 блока*/
 .zag_3_bloka{text-align: center; margin-top: 66px; }
 .roditel_1_blok3_for_bloks{ margin-left: 116px; margin-top: 51px; width: 1590px; height: 300px; display: flex;}
-.plashka_advantages{width: 500px; height: 299px; border: solid 2px #A0C4D3; border-radius: 10px; margin-left: 47px;} 
+.plashka_advantages{width: 500px; height: 299px; border: solid 2px #A0C4D3; border-radius: 10px; margin-left: 47px; transition: box-shadow 0.8s ease;} 
+.plashka_advantages:hover {box-shadow: 10px 11px 4px #A0C4D3; }
 .zag_pladh{margin-top: 51px; text-align: center;}
 .text_plash{margin-top: 8px; text-align: center;}
 /*конец 3 блока*/
@@ -50,7 +51,8 @@ a{ color: black; text-decoration: none;}
 .zag_4bloka{margin-top: 113px; text-align: center;}
 
 .rod_for_otziv{width: 1108; height: 642px; display: flex; margin-top: 142px; margin-left: 185px;}
-.kart_otziv{width: 350px; height: 500px; border: solid 2px #A0C4D3; margin-left: 127px;}
+.kart_otziv{width: 350px; height: 500px; border: solid 2px #A0C4D3; margin-left: 127px; transition: box-shadow 0.8s ease;}
+.kart_otziv:hover {box-shadow: 10px 11px 4px #A0C4D3; }
 .vverx_otziv{width: 350px; height: 250px;}
 .kryg_avatar{width: 200px; height: 200px; border-radius: 100px; border: solid 2px #A0C4D3; margin-top: 36px; margin-left: 75px;}
 .text_otziv{text-align: center;}

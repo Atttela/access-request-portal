@@ -25,9 +25,18 @@ a{ color: black; text-decoration: none;}
 .a_kn{color: #FFFFFF;}
 /*конец хедера*/
 
+.dek{border-radius: 50%; background-color: #A0C4D3;}
+.kryg1{width: 185px ; height: 185px ; z-index: -1; position: absolute;  top: 216px; ; left: 132px;}
+.kryg2{width:40px ; height: 40px; z-index: -1; position: absolute; top: 437px;left: 237px ;}
+.kryg3{width: 97px; height: 97px; ; z-index: -1; position: absolute;top: 455px; ; left: 104px ;}
+.kryg4{width: 119px; ; height: 119px; ; z-index: -1; position: absolute; top : 376px; ; left : 1481px; }
+.kryg5{width: 84px; height:84px ; z-index: -1; position: absolute; top:479px; ;  left: 1606px; }
+.kryg6{width:205px ; height:205px ; z-index: -1; position: absolute; top: 542px;  left :1412px;}
+
 .zag {margin-bottom: 30px;}
 .roditel{width: 1920px;height: 644px;align-items: center; justify-content: center; display: flex;}
 .blok{width: 626px; height: 524px; border:solid 4px #A0C4D3; border-radius: 10px; background-color: #F1F8FE; align-items: center; justify-content: center; display: flex;flex-direction: column; }
+
 
 .for_bootom{width: 300px; height: 40px; display: flex;}
 .no{width: 138px; height: 40px; border-radius: 12px; background-color: #163658; text-align: center;}
