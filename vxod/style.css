@@ -76,3 +76,9 @@ a{ color: black; text-decoration: none;}
 .karta_foot{margin-left: 45px; margin-top: 83px; width: 473px; height: 163px; background-image: url(./img_vxod/karta.png);}
 .fon_knop_foot{width: 328px; height: 44px; border-radius: 12px;margin-left: 125px;margin-top: 31px; background-color: #163658;}
 /*конец футера*/
+
+.valid-msg{position: fixed; top: 20px; left: 50%; transform: translateX(-50%); padding: 10px 20px; border-radius: 8px; font-family: 'Alegreya'; font-size: 20px; z-index: 10000; display: none;}
+.valid-msg.error{display: block; background: #ffdede; color: #b30000; border: 1px solid #ff5656;}
+.valid-msg.success{display: block; background: #dfffe0; color: #006400; border: 1px solid #4caf50;}
+input.error{border: 2px solid #ff5656 !important; background: #fff0f0 !important;}
+input.success{border: 2px solid #4caf50 !important; background: #f0fff0 !important;}

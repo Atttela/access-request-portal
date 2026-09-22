@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-      <header class="hed"> <!--начало хедера, вариант 2-->
+
+    <header class="hed"> <!--начало хедера, вариант 2-->
 
         <a href="..\main/index.html"><div class="logo_hed"></div></a>
 <div class="knop1"> <a href="..\o_kompanii/index.html"> О компании </a> </div>
@@ -17,42 +18,28 @@
 <div class="fon_knop4"> <div class="knop4" style="color: #FFFFFF;"> <a href="..\vxod/index.html"class="a_kn"> Вход/Регистрация </a> </div></div> <!--кнопка регистрации-->
     </header> <!--конец хедера, вариант 2-->
 
-<div class="roditel">
-    <div class="blok">
-        <div class="zag text_36p"><b>Регистрация</b></div>
-        <form >
-            <div class="field">
-    <label> <b>ФИО*</b></label>
-    <input type="text" name="fullname" required>
-  </div>
-
-  <div class="field">
-    <label> <b>email*</b></label>
-    <input type="email" name="email" required>
-  </div>
-
-  <div class="field">
-    <label> <b>Пароль*</b></label>
-    <input type="password" name="password"required>
-  </div>
-
-<button >Зарегестрироваться</a></button>
-        </form>
-          
-             
-</div>
-    </div>
+<div class="pustota" id="pustota"><div class="text_48p" id="pustotaText">Заявок нет</div>
+    <table id="tablica">
+  <thead>
+    <tr>
+      <th>ФИО</th>
+<th>Статус заявки</th>
+<th>Тип доступа</th>
+<th>Срок</th>
+<th>Дата</th>
+<th>Действие</th>
+    </tr>
+  </thead>
+  <tbody id="tablicaBody"></tbody>
+</table>
 </div>
 
-<div class="dek kryg1"></div>
-<div class="dek kryg2"></div>
-<div class="dek kryg3"></div>
-<div class="dek kryg4"></div>
-<div class="dek kryg5"></div>
-<div class="dek kryg6"></div>
+<div class="modal" id="modal"><div class="modal-content">
+    <span class="modal-close" id="modalClose">&times;</span>
+    <div id="modalBody"> </div>
+</div></div>
 
-
-      <footer class="fyt"> <!--начало футера-->
+    <footer class="fyt"> <!--начало футера-->
 
 <div class="blok_1_foot"> <!--1 блок футера-->
  <a href="..\main/index.html"><div class="logo_foot"></div></a>
@@ -82,8 +69,7 @@
 </div> <!--3 блок футера конец-->
 
     </footer> <!-- конец футера-->
-
-    <div class="valid-msg" id="validMsg"></div>
+    
 </body>
 <script src="script.js"></script>
 </html>

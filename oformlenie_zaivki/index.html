@@ -9,12 +9,12 @@
 <body>
      <header class="hed"> <!--начало хедера, вариант 2-->
 
-        <a href="C:\Users\ADMIN\access-request-portal\main/index.html"><div class="logo_hed"></div></a>
-<div class="knop1"> <a href="C:\Users\ADMIN\access-request-portal\o_kompanii/index.html"> О компании </a> </div>
-<div class="knop2"> <a href="C:\Users\ADMIN\access-request-portal\kontakt/index.html"> Контакты </a> </div>
-<div class="knop3"> <a href="C:\Users\ADMIN\access-request-portal\" > Заявки </a> </div>
+        <a href="..\main/index.html"><div class="logo_hed"></div></a>
+<div class="knop1"> <a href="..\o_kompanii/index.html"> О компании </a> </div>
+<div class="knop2"> <a href="..\kontakt/index.html"> Контакты </a> </div>
+<div class="knop3"> <a href="..\zaivki_tabl/index.html" > Заявки </a> </div>
 
-<div class="fon_knop4"> <div class="knop4" style="color: #FFFFFF;"> <a href="C:\Users\ADMIN\access-request-portal\vxod/index.html"class="a_kn"> Вход/Регистрация </a> </div></div> <!--кнопка регистрации-->
+<div class="fon_knop4"> <div class="knop4" style="color: #FFFFFF;"> <a href="..\vxod/index.html"class="a_kn"> Вход/Регистрация </a> </div></div> <!--кнопка регистрации-->
     </header> <!--конец хедера, вариант 2-->
 
 <div class="blok_1"> <!--начало блока 1-->
@@ -30,39 +30,39 @@
             <div class="tex2 text_36p"> <b>Основные данные</b></div>
         </div>
 
-<form >
+<form>  <!---------------------------------------------------------------------------------------------------------------------------------->
         <div class="row"> <!--строка 1 в форме начало-->
     <div class="field">
     <label class="text_20p"><b>ФИО*</b></label>
-    <input type="text">
+    <input type="text" class="imput_100" name="FUO" required >
     </div>
 
     
     <div class="field">
     <label class="text_20p"><b>email*</b></label>
-    <input type="email">
+    <input type="email" class="imput_100" name="mail" required>
     </div>
 
 
     <div class="field">
     <label class="text_20p"> <b>Телефон*</b></label>
-    <input type="number">
+    <input type="number" class="imput_100" name="telofon" required>
     </div>
   </div><!--строка 1 в форме конец-->
 
   <div class="row"><!--строка 2 в форме начало-->
     <div class="field wide">
     <label class="text_20p"> <b>Должность</b></label>
-    <input type="text">
+    <input type="text" class="imput_100" name="job" required>
     </div>
 
 
     <div class="field wide">
     <label class="text_20p"><b>Отдел/Департамент</b></label>
-    <input type="text">
+    <input type="text" class="imput_100" name="departamet" required>
     </div>
   </div> <!--строка 2 в форме конец-->
-</form></div> <!--конец 1 блока в форме-->
+</div> <!--конец 1 блока в форме-->
 
    
 
@@ -74,33 +74,33 @@
         </div>
 
 	<div class="rod_raz_">
-		<div class="text_20p">Доступ к</div>
+		<div class="text_20p zag2"> <b>Доступ к</b></div>
 		<div class="radio-group">
-			<label><input type="radio" name="dostup" value="1c"> Доступ к 1С</label>
-			<label><input type="radio" name="dostup" value="pochta"> Доступ к корпоративной почте</label>
-			<label><input type="radio" name="dostup" value="crm"> Доступ к CRM</label>
-			<label><input type="radio" name="dostup" value="server"> Доступ к файловому серверу</label>
-			<label><input type="radio" name="dostup" value="drugoe"> Другие</label>
+			<div><input type="radio" name="dostup" value="1c" id="1c" required> <label for="1c">Доступ к 1С</label></div>
+			<div><input type="radio" name="dostup" value="pochta" id="pochta" required><label for="pochta"> Доступ к корпоративной почте</label></div>
+			<div><input type="radio" name="dostup" value="crm" id="crm" required><label for="crm"> Доступ к CRM</label></div>
+			<div><input type="radio" name="dostup" value="server" id="server"required><label for="server"> Доступ к файловому серверу</label></div>
+
 		</div>
 	</div>
 	<div class="rod_raz_">
-		<div class="text_20p">Приоритет</div>
+		<div class="text_20p zag2"> <b>Приоритет</b></div>
 		<div class="radio-group">
-			<label><input type="radio" name="prioritet" value="nizkiy"> Низкий(плановый)</label>
-			<label><input type="radio" name="prioritet" value="sredniy"> Средний(стандартный)</label>
-			<label><input type="radio" name="prioritet" value="visokiy"> Высокий</label>
+			<div><input type="radio" name="prioritet" value="nizkiy" id="nizkiy"><label for="nizkiy" required> Низкий(плановый)</label></div>
+			<div><input type="radio" name="prioritet" value="sredniy" id="sredniy"><label for="sredniy" required> Средний(стандартный)</label></div>
+			<div><input type="radio" name="prioritet" value="visokiy" id="visokiy"><label for="visokiy" required> Высокий</label></div>
 		</div>
-		<div class="text_20p" style="margin-top: 20px;">Желаемая дата предоставления доступа</div>
-		<input type="date" style="margin-top: 10px; width: 200px;">
+		<div class="text_16p zag3" style="margin-top: 20px;"> <b>Желаемая дата предоставления доступа</b></div>
+		<input type="date" style="margin-top: 10px; width: 200px;" name="data">
 	</div>
 	<div class="rod_raz_">
-		<div class="text_20p">Срок предоставления доступа</div>
+		<div class="text_20p zag2"> <b>Срок предоставления доступа</b></div>
 		<div class="radio-group">
-			<label><input type="radio" name="srok" value="bessrochno"> Безсрочно</label>
-			<label><input type="radio" name="srok" value="1mes"> 1 месяц</label>
-			<label><input type="radio" name="srok" value="3mes"> 3 месяца</label>
-			<label><input type="radio" name="srok" value="6mes"> 6 месяцев</label>
-			<label><input type="radio" name="srok" value="1god"> 1 год</label>
+			<div><input type="radio" name="srok" value="bessrochno" id="bessrochno"><label for="bessrochno"> Безсрочно</label></div>
+			<div><input type="radio" name="srok" value="1mes" id="1mes" required><label for="1mes"> 1 месяц</label></div>
+			<div><input type="radio" name="srok" value="3mes" id="3mes" required><label for="3mes"> 3 месяца</label></div>
+			<div><input type="radio" name="srok" value="6mes" id="6mes" required><label for="6mes"> 6 месяцев</label></div>
+			<div><input type="radio" name="srok" value="1god" id="1god" required><label for="1god"> 1 год</label></div>
 		</div>
 	</div>
 </div>
@@ -112,36 +112,57 @@
             <div class="dek number_fon text_48p"> <b>3</b></div>
             <div class="tex2 text_36p"> <b>Цель и комментарии</b></div>
         </div>
+     
 
         <div class="row">
 	<div class="field">
     <label class="text_20p"><b>Цели</b></label>
-    <input type="text">
+    <input type="text" name="goals">
     </div>
 
 
     <div class="field">
-    <label class="text_20p"> <b>комментарии</b></label>
-    <input type="text">
+    <label class="text_20p"> <b>Kомментарии</b></label>
+    <input type="text" name="komm">
     </div>
-
+        </div>
     </div>
-
+   <button class="fon_knop_foot "onclick="otpravka(event)"> <div class="knop4" style="color: #FFFFFF;" > Отправить заявку </div> </button>
+   <button class="fon_knop_foot "style="color: #none; " onclick="ochistka()" > <div class="knop4" style="color: #FFFFFF; "> Очистить</div></button> 
+</form>
 </div><!--конец 3 блока формы-->
 </div><!--блок 2 конец-->
+
+<div class="blok3"><!--начало 3 блока-->
+
+
+</div><!--начало 3 блока-->
+
+<div class="dek kryg1"></div>
+<div class="dek kryg2"></div>
+<div class="dek kryg3"></div>
+<div class="dek kryg4"></div>
+<div class="dek kryg5"></div>
+<div class="dek kryg6"></div>
+<div class="dek kryg7"></div>
+<div class="dek kryg8"></div>
+
+
+
+
         <footer class="fyt"> <!--начало футера-->
 
 <div class="blok_1_foot"> <!--1 блок футера-->
- <a href="C:\Users\ADMIN\access-request-portal\main/index.html"><div class="logo_foot"></div></a>
+ <a href="..\main/index.html"><div class="logo_foot"></div></a>
 <div class="podpis_foot text_20p"> <b>2026 ТехноСофт© - Все права защищены</b></div>
 </div> <!--1 блок футера конец-->
 
 <div class="blok_2foot"> <!--2 блок футера-->
 
     <div class="for_knop_foot"> <!--начало дива для кнопок футера-->
-    <div class="knop_foot1 "> <a href="C:\Users\ADMIN\access-request-portal\o_kompanii/index.html" class="text_32p"> О компании</a> </div>
-    <div class="knop_foot1 "> <a href="C:\Users\ADMIN\access-request-portal\kontakt/index.html" class="text_32p"> Контакты</a> </div>
-    <div class="knop_foot1 "> <a href="C:\Users\ADMIN\access-request-portal\" class="text_32p"> Заявки</a> </div>
+    <div class="knop_foot1 "> <a href="..\o_kompanii/index.html" class="text_32p"> О компании</a> </div>
+    <div class="knop_foot1 "> <a href="..\kontakt/index.html" class="text_32p"> Контакты</a> </div>
+    <div class="knop_foot1 "> <a href="..\zaivki_tabl/index.html" class="text_32p"> Заявки</a> </div>
     </div> <!--конец дива для кнопок футера-->
 
     
@@ -155,7 +176,7 @@
 
 <div class="blok_3foot"> <!--3 блок футера-->
     <div class="karta_foot"></div>
-<div class="fon_knop_foot"> <div class="knop4" style="color: #FFFFFF;"> <a href="C:\Users\ADMIN\access-request-portal\vxod/index.html"class="a_kn"> Вход/Регистрация </a> </div></div> <!--кнопка регистрации-->
+<div class="fon_knop_foot"> <div class="knop4" style="color: #FFFFFF;"> <a href="..\vxod/index.html"class="a_kn"> Вход/Регистрация </a> </div></div> <!--кнопка регистрации-->
 </div> <!--3 блок футера конец-->
 
     </footer> <!-- конец футера-->

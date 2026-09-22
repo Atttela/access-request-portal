@@ -89,3 +89,31 @@ a{ color: black; text-decoration: none;}
 .kryg5{width: 119px; height: 119px; z-index: -1; position: absolute;top: 1940px; left: 1174px;}
 .kryg6{width: 272px; height: 272px; z-index: -1; position: absolute;top: 1721px; right: -119px;}
 .kryg7{width: 94px; height: 94px; z-index: -1; position: absolute;top: 2216px; left: 187px;}
+
+/*детализированная анимация оригами: окно -> птичка -> улет*/
+.origami-window{position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9998; pointer-events: none; opacity: 0; perspective: 2000px; transform-style: preserve-3d;}
+.origami-window.aktivno{opacity: 1;}
+.origami-ugol-1, .origami-ugol-2, .origami-ugol-3, .origami-ugol-4{position: absolute; width: 50%; height: 50%; background: #F1F8FE; border: 2px solid #A0C4D3; transform-origin: center center; transition: transform 1s cubic-bezier(0.55, 0.055, 0.675, 0.19), opacity 0.8s ease;}
+.origami-ugol-1{top: 0; left: 0; transform-origin: bottom right;}
+.origami-ugol-2{top: 0; right: 0; transform-origin: bottom left;}
+.origami-ugol-3{bottom: 0; left: 0; transform-origin: top right;}
+.origami-ugol-4{bottom: 0; right: 0; transform-origin: top left;}
+.origami-window.slozhit .origami-ugol-1{transform: rotateY(180deg) rotateX(180deg) scale(0.3); opacity: 0;}
+.origami-window.slozhit .origami-ugol-2{transform: rotateY(-180deg) rotateX(180deg) scale(0.3); opacity: 0;}
+.origami-window.slozhit .origami-ugol-3{transform: rotateY(180deg) rotateX(-180deg) scale(0.3); opacity: 0;}
+.origami-window.slozhit .origami-ugol-4{transform: rotateY(-180deg) rotateX(-180deg) scale(0.3); opacity: 0;}
+.origami-bird{position: fixed; top: 50%; left: 50%; width: 140px; height: 140px; z-index: 9999; transform: translate(-50%, -50%) scale(0); opacity: 0; pointer-events: none; transform-origin: center center;}
+.origami-bird.poyavilsya{animation: bird-appear 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;}
+.origami-bird.letit{animation: bird-flight 1.8s cubic-bezier(0.895, 0.03, 0.685, 0.22) forwards;}
+@keyframes bird-appear{0%{transform: translate(-50%, -50%) scale(0) rotate(-20deg); opacity: 0;}100%{transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1;}}
+@keyframes bird-flight{0%{transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1;}20%{transform: translate(-50%, -50%) scale(8) rotate(-5deg); opacity: 1;}35%{transform: translate(-50%, -55%) scale(9) rotate(5deg); opacity: 1;}60%{transform: translate(calc(-50% + 45vw), calc(-50% - 25vh)) scale(6) rotate(8deg); opacity: 0.9;}100%{transform: translate(calc(-50% + 120vw), calc(-50% - 40vh)) scale(3) rotate(20deg); opacity: 0;}}
+.bird-telo{position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-left: 35px solid transparent; border-right: 35px solid transparent; border-bottom: 60px solid #A0C4D3; transform: translate(-50%, -50%);}
+.bird-golova{position: absolute; top: 20%; left: 60%; width: 0; height: 0; border-left: 18px solid transparent; border-right: 18px solid transparent; border-bottom: 30px solid #7FAFC4; transform: translate(-50%, -50%) rotate(30deg);}
+.bird-klyuv{position: absolute; top: 18%; left: 82%; width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 14px solid #163658; transform: translate(-50%, -50%) rotate(90deg);}
+.bird-glaz{position: absolute; top: 22%; left: 72%; width: 6px; height: 6px; background: #163658; border-radius: 50%; transform: translate(-50%, -50%);}
+.bird-krylo-levo{position: absolute; top: 45%; left: 50%; width: 0; height: 0; border-left: 30px solid transparent; border-right: 30px solid transparent; border-bottom: 50px solid #7FAFC4; transform-origin: bottom right; transform: translate(-95%, -20%) rotate(-25deg); animation: mah-levo 0.35s ease-in-out infinite alternate;}
+.bird-krylo-pravo{position: absolute; top: 45%; left: 50%; width: 0; height: 0; border-left: 30px solid transparent; border-right: 30px solid transparent; border-bottom: 50px solid #7FAFC4; transform-origin: bottom left; transform: translate(-5%, -20%) rotate(25deg); animation: mah-pravo 0.35s ease-in-out infinite alternate;}
+.bird-hvost{position: absolute; top: 75%; left: 50%; width: 0; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent; border-top: 40px solid #A0C4D3; transform-origin: top center; transform: translate(-50%, -50%) rotate(0deg); animation: hvost-mah 0.5s ease-in-out infinite alternate;}
+@keyframes mah-levo{0%{transform: translate(-95%, -20%) rotate(-25deg);}100%{transform: translate(-95%, -20%) rotate(-60deg);}}
+@keyframes mah-pravo{0%{transform: translate(-5%, -20%) rotate(25deg);}100%{transform: translate(-5%, -20%) rotate(60deg);}}
+@keyframes hvost-mah{0%{transform: translate(-50%, -50%) rotate(-10deg);}100%{transform: translate(-50%, -50%) rotate(10deg);}}
