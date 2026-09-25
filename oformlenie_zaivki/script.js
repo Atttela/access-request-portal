@@ -1,55 +1,92 @@
- function ochistka() {
+function ochistka() {
     document.querySelector('input[name="FUO"]').value = '';
-     document.querySelector('input[name="mail"]').value = '';
-      document.querySelector('input[name="telofon"]').value = '';
-      document.querySelector('input[name="job"]').value = '';
-      document.querySelector('input[name="departamet"]').value = '';
+    document.querySelector('input[name="mail"]').value = '';
+    document.querySelector('input[name="telofon"]').value = '';
+    document.querySelector('input[name="job"]').value = '';
+    document.querySelector('input[name="departamet"]').value = '';
 
-      document.querySelectorAll('input[name="dostup"]').forEach(radio => {
-  radio.checked = false;
-});
-      document.querySelectorAll('input[name="prioritet"]').forEach(radio => {
-  radio.checked = false;
-});
-      document.querySelectorAll('input[name="srok"]').forEach(radio => {
-  radio.checked = false;
-});
+    document.querySelectorAll('input[name="dostup"]').forEach(radio => {
+        radio.checked = false;
+    });
+    document.querySelectorAll('input[name="prioritet"]').forEach(radio => {
+        radio.checked = false;
+    });
+    document.querySelectorAll('input[name="srok"]').forEach(radio => {
+        radio.checked = false;
+    });
 
- document.querySelector('input[name="data"]').value = '';
-
- document.querySelector('input[name="goals"]').value = '';
-      document.querySelector('input[name="komm"]').value = '';
-
-    // очистить каждое поле
- };
-// формируем из полей формы обьект 
-    // получить массив заявок из локалсторэич 
-    //добавить 
-  function otpravka(e) {
-    e.preventDefault()
-    console.log('uhgjgj')
-    const zaivka = {
-        FUO: document.querySelector('input[name="FUO"]').value,
-        mail: document.querySelector('input[name="mail"]').value,
-        telofon: document.querySelector('input[name="telofon"]').value,
-        job: document.querySelector('input[name="job"]').value,
-        departamet: document.querySelector('input[name="departamet"]').value,
-
-        dostup: document.querySelector('input[name="dostup"]:checked')?.value || '',
-        prioritet: document.querySelector('input[name="prioritet"]:checked')?.value || '',
-        srok: document.querySelector('input[name="srok"]:checked')?.value || '',
-
-        data: document.querySelector('input[name="data"]').value,
-        goals: document.querySelector('input[name="goals"]').value,
-        komm: document.querySelector('input[name="komm"]').value
-    };
-
-    let zaivki = JSON.parse(localStorage.getItem('zaivki'));
-    if (!Array.isArray(zaivki)) { zaivki = []; }
-    zaivki.push(zaivka);
-    localStorage.setItem('zaivki', JSON.stringify(zaivki));
-    window.location.href = '..\\zaivki_tabl\\index.html';
+    document.querySelector('input[name="data"]').value = '';
+    document.querySelector('input[name="goals"]').value = '';
+    document.querySelector('input[name="komm"]').value = '';
 }
-// console.log('dostup:', document.querySelector('input[name="dostup"]:checked'));
-// console.log('prioritet:', document.querySelector('input[name="prioritet"]:checked'));
-// console.log('srok:', document.querySelector('input[name="srok"]:checked'));
+
+//  Валидация телефона
+document.addEventListener('DOMContentLoaded', () => {
+    const phoneInput = document.querySelector('input[name="telofon"]');
+    if (!phoneInput) return;
+
+    // При фокусе: если пусто — подставляем +7
+    phoneInput.addEventListener('focus', () => {
+        if (phoneInput.value.trim() === '') {
+            phoneInput.value = '+7 ';
+        }
+    });
+
+    // При вводе: считаем цифры, если больше 11 — не даём печатать
+    phoneInput.addEventListener('input', (e) => {
+        let value = phoneInput.value;
+
+        // Считаем только цифры
+        const digits = value.replace(/\D/g, '');
+
+        // Если цифр больше 11 — обрезаем
+        if (digits.length > 11) {
+            // Оставляем только первые 11 цифр и восстанавливаем формат
+            const truncated = digits.slice(0, 11);
+
+            // Восстанавливаем с форматированием
+            phoneInput.value = formatPhone(truncated);
+            return;
+        }
+
+        // Автоматически  +7 если стёрли
+        if (!value.startsWith('+7') && value.length > 0) {
+            phoneInput.value = '+7 ' + value.replace(/^\+?7?\s*/, '');
+        }
+    });
+
+    // При отправке формы — валидация
+    const form = document.querySelector('form');
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            const phone = phoneInput.value;
+            const digits = phone.replace(/\D/g, '');
+
+            // Должно быть ровно 11 цифр, и начинаться с 7
+            if (digits.length !== 11 || !digits.startsWith('7')) {
+                e.preventDefault();
+                alert('Некорректный номер телефона. Введите 11 цифр, начиная с +7');
+                phoneInput.focus();
+                return;
+            }
+        });
+    }
+});
+
+// Функция форматирования: 79991234567 → +7 (999) 123-45-67
+function formatPhone(digits) {
+    // digits = "79991234567"
+    if (digits.length === 0) return '+7 ';
+    if (digits.length === 1) return '+7';
+
+    const rest = digits.slice(1); 
+    let result = '+7 ';
+
+    if (rest.length > 0) result += '(' + rest.slice(0, 3);
+    if (rest.length >= 3) result += ') ';
+    if (rest.length > 3) result += rest.slice(3, 6);
+    if (rest.length > 6) result += '-' + rest.slice(6, 8);
+    if (rest.length > 8) result += '-' + rest.slice(8, 10);
+
+    return result;
+}

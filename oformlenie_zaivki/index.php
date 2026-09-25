@@ -1,3 +1,7 @@
+<?php
+session_start();
+require '../database.php'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +13,23 @@
 <body>
      <header class="hed"> <!--начало хедера, вариант 2-->
 
-        <a href="..\main/index.html"><div class="logo_hed"></div></a>
-<div class="knop1"> <a href="..\o_kompanii/index.html"> О компании </a> </div>
-<div class="knop2"> <a href="..\kontakt/index.html"> Контакты </a> </div>
-<div class="knop3"> <a href="..\zaivki_tabl/index.html" > Заявки </a> </div>
+        <a href="../main/index.php"><div class="logo_hed"></div></a>
+<div class="knop1"> <a href="../o_kompanii/index.php"> О компании </a> </div>
+<div class="knop2"> <a href="../kontakt/index.php"> Контакты </a> </div>
+<div class="knop3"> <a href="../zaivki_tabl/index.php"> Заявки </a> </div>
 
-<div class="fon_knop4"> <div class="knop4" style="color: #FFFFFF;"> <a href="..\vxod/index.html"class="a_kn"> Вход/Регистрация </a> </div></div> <!--кнопка регистрации-->
+<div class="fon_knop4"> 
+    <div class="knop4" style="color: #FFFFFF;"> 
+        <?php if (isset($_SESSION['user_id'])): ?>
+            <a href="../oformlenie_zaivki/index.php" class="a_kn">Оформить заявку</a>
+        <?php else: ?>
+            <a href="../vxod/index.php" class="a_kn">Вход/Регистрация</a>
+        <?php endif; ?>
+    </div>
+</div>
+<?php if (isset($_SESSION['user_id'])): ?>
+    <a href="../vixod/index.php" class="knop_vihod" title="Выйти"></a>
+<?php endif; ?>
     </header> <!--конец хедера, вариант 2-->
 
 <div class="blok_1"> <!--начало блока 1-->
@@ -30,7 +45,7 @@
             <div class="tex2 text_36p"> <b>Основные данные</b></div>
         </div>
 
-<form>  <!---------------------------------------------------------------------------------------------------------------------------------->
+<form action="../save.php" method="POST">
         <div class="row"> <!--строка 1 в форме начало-->
     <div class="field">
     <label class="text_20p"><b>ФИО*</b></label>
@@ -46,7 +61,7 @@
 
     <div class="field">
     <label class="text_20p"> <b>Телефон*</b></label>
-    <input type="number" class="imput_100" name="telofon" required>
+<input type="text" class="imput_100" name="telofon" id="phoneInput" placeholder="+7 (___) ___-__-__" required>
     </div>
   </div><!--строка 1 в форме конец-->
 
@@ -127,8 +142,8 @@
     </div>
         </div>
     </div>
-   <button class="fon_knop_foot "onclick="otpravka(event)"> <div class="knop4" style="color: #FFFFFF;" > Отправить заявку </div> </button>
-   <button class="fon_knop_foot "style="color: #none; " onclick="ochistka()" > <div class="knop4" style="color: #FFFFFF; "> Очистить</div></button> 
+   <button class="fon_knop_foot " type="submit"> <div class="knop4" style="color: #FFFFFF;" > Отправить заявку </div> </button>
+   <button class="fon_knop_foot " type="button" style="color: #none; " onclick="ochistka()" > <div class="knop4" style="color: #FFFFFF; "> Очистить</div></button> 
 </form>
 </div><!--конец 3 блока формы-->
 </div><!--блок 2 конец-->
@@ -153,16 +168,16 @@
         <footer class="fyt"> <!--начало футера-->
 
 <div class="blok_1_foot"> <!--1 блок футера-->
- <a href="..\main/index.html"><div class="logo_foot"></div></a>
+ <a href="../main/index.php"><div class="logo_foot"></div></a>
 <div class="podpis_foot text_20p"> <b>2026 ТехноСофт© - Все права защищены</b></div>
 </div> <!--1 блок футера конец-->
 
 <div class="blok_2foot"> <!--2 блок футера-->
 
     <div class="for_knop_foot"> <!--начало дива для кнопок футера-->
-    <div class="knop_foot1 "> <a href="..\o_kompanii/index.html" class="text_32p"> О компании</a> </div>
-    <div class="knop_foot1 "> <a href="..\kontakt/index.html" class="text_32p"> Контакты</a> </div>
-    <div class="knop_foot1 "> <a href="..\zaivki_tabl/index.html" class="text_32p"> Заявки</a> </div>
+    <div class="knop_foot1 "> <a href="../o_kompanii/index.php" class="text_32p"> О компании</a> </div>
+    <div class="knop_foot1 "> <a href="../kontakt/index.php" class="text_32p"> Контакты</a> </div>
+    <div class="knop_foot1 "> <a href="../zaivki_tabl/index.php" class="text_32p"> Заявки</a> </div>
     </div> <!--конец дива для кнопок футера-->
 
     
@@ -171,12 +186,12 @@
 <a href="https://workspace.google.com/intl/ru/gmail/"> <div class="logo_pocht"> </div></a>
 <a href="https://vk.ru/?u=2&to=L2luZGV4LnBocA--"> <div class="logo_vk"> </div></a>
     </div><!--конец родителя для сотсетей во втором блоке-->
-    <div class="text_20p text_foot2"> <b>Улица 40 лет Победы, 3/1, с. Кашкарагаиха, Тальменский район, Алтайский край.</b></div>
+    <div class="text_20p text_foot2"> <b>Улица 40 лет Победы, 3/1, с. Кашкарагаиха, Тальменский район, Алтайский край.</b></div>
 </div> <!--2 блок футера конец-->
 
 <div class="blok_3foot"> <!--3 блок футера-->
     <div class="karta_foot"></div>
-<div class="fon_knop_foot"> <div class="knop4" style="color: #FFFFFF;"> <a href="..\vxod/index.html"class="a_kn"> Вход/Регистрация </a> </div></div> <!--кнопка регистрации-->
+<div class="fon_knop_foot"> <div class="knop4" style="color: #FFFFFF;"> <a href="../vxod/index.php" class="a_kn"> Вход/Регистрация </a> </div></div>
 </div> <!--3 блок футера конец-->
 
     </footer> <!-- конец футера-->

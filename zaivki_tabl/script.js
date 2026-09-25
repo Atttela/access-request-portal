@@ -1,49 +1,15 @@
-function vyvestiZayavki() {
-    const tbody = document.getElementById('tablicaBody');
-    const pustotaText = document.getElementById('pustotaText');
-    const tablica = document.getElementById('tablica');
-    if (!tbody) return;
-
-    const zaivki = JSON.parse(localStorage.getItem('zaivki') || '[]');
-    tbody.innerHTML = '';
-
-    if (zaivki.length === 0) {
-        if (pustotaText) pustotaText.style.display = 'block';
-        if (tablica) tablica.style.display = 'none';
-        return;
-    }
-
-    if (pustotaText) pustotaText.style.display = 'none';
-    if (tablica) tablica.style.display = 'table';
-
-    const slovDostup = {'1c': 'Доступ к 1С', 'pochta': 'Доступ к корпоративной почте', 'crm': 'Доступ к CRM', 'server': 'Доступ к файловому серверу'};
-    const slovPrioritet = {'nizkiy': 'Низкий (плановый)', 'sredniy': 'Средний (стандартный)', 'visokiy': 'Высокий'};
-    const slovSrok = {'bessrochno': 'Бессрочно', '1mes': '1 месяц', '3mes': '3 месяца', '6mes': '6 месяцев', '1god': '1 год'};
-
-    zaivki.forEach((z, index) => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td>${z.FUO || ''}</td>
-            <td>${slovPrioritet[z.prioritet] || z.prioritet || ''}</td>
-            <td>${slovDostup[z.dostup] || z.dostup || ''}</td>
-            <td>${slovSrok[z.srok] || z.srok || ''}</td>
-            <td>${z.data || ''}</td>
-            <td><a href="#" class="otkryt-modal" data-index="${index}">Просмотр</a></td>
-        `;
-        tbody.appendChild(tr);
-    });
-}
-
-vyvestiZayavki();
+// Определяем, админ ли текущий пользователь
+const isAdmin = document.body.dataset.isAdmin === '1';
 
 // ===== Модальное окно =====
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('otkryt-modal')) {
         e.preventDefault();
-        const index = e.target.dataset.index;
-        const zaivki = JSON.parse(localStorage.getItem('zaivki') || '[]');
-        const z = zaivki[index];
-        if (!z) return;
+        const d = e.target.dataset;
+
+        // Определяем текущий статус
+        const statusText = d.status == 1 ? 'Одобрено' : 'Отклонено';
+        const statusClass = d.status == 1 ? 'status-ok' : 'status-no';
 
         document.getElementById('modalBody').innerHTML = `
             <div class="blok2">
@@ -52,11 +18,11 @@ document.addEventListener('click', (e) => {
                         <div class="dek number_fon text_48p"><b>1</b></div>
                         <div class="tex2 text_36p"><b>Основные данные</b></div>
                     </div>
-                    <div class="text_20p"><b>ФИО</b> - ${z.FUO || ''}</div>
-                    <div class="text_20p"><b>email</b> - ${z.mail || ''}</div>
-                    <div class="text_20p"><b>Телефон</b> - ${z.telofon || ''}</div>
-                    <div class="text_20p"><b>Должность</b> - ${z.job || ''}</div>
-                    <div class="text_20p"><b>Отдел/Департамент</b> - ${z.departamet || ''}</div>
+                    <div class="text_20p"><b>ФИО</b> - ${d.fio || ''}</div>
+                    <div class="text_20p"><b>email</b> - ${d.mail || ''}</div>
+                    <div class="text_20p"><b>Телефон</b> - ${d.telofon || ''}</div>
+                    <div class="text_20p"><b>Должность</b> - ${d.job || ''}</div>
+                    <div class="text_20p"><b>Отдел/Департамент</b> - ${d.departamet || ''}</div>
                 </div>
 
                 <div class="for_2blok_form">
@@ -68,33 +34,33 @@ document.addEventListener('click', (e) => {
                         <div class="m_col">
                             <div class="text_20p zag2"><b>Доступ к</b></div>
                             <div class="radio-group">
-                                <div><input type="radio" name="m_dostup" value="1c" ${z.dostup === '1c' ? 'checked' : ''} disabled><label> Доступ к 1С</label></div>
-                                <div><input type="radio" name="m_dostup" value="pochta" ${z.dostup === 'pochta' ? 'checked' : ''} disabled><label> Доступ к корпоративной почте</label></div>
-                                <div><input type="radio" name="m_dostup" value="crm" ${z.dostup === 'crm' ? 'checked' : ''} disabled><label> Доступ к CRM</label></div>
-                                <div><input type="radio" name="m_dostup" value="server" ${z.dostup === 'server' ? 'checked' : ''} disabled><label> Доступ к файловому серверу</label></div>
+                                <div><input type="radio" name="m_dostup" value="1c" ${d.dostup === '1c' ? 'checked' : ''} disabled><label> Доступ к 1С</label></div>
+                                <div><input type="radio" name="m_dostup" value="pochta" ${d.dostup === 'pochta' ? 'checked' : ''} disabled><label> Доступ к корпоративной почте</label></div>
+                                <div><input type="radio" name="m_dostup" value="crm" ${d.dostup === 'crm' ? 'checked' : ''} disabled><label> Доступ к CRM</label></div>
+                                <div><input type="radio" name="m_dostup" value="server" ${d.dostup === 'server' ? 'checked' : ''} disabled><label> Доступ к файловому серверу</label></div>
                             </div>
                         </div>
                         <div class="m_col">
                             <div class="text_20p zag2"><b>Приоритет</b></div>
                             <div class="radio-group">
-                                <div><input type="radio" name="m_prioritet" value="nizkiy" ${z.prioritet === 'nizkiy' ? 'checked' : ''} disabled><label> Низкий (плановый)</label></div>
-                                <div><input type="radio" name="m_prioritet" value="sredniy" ${z.prioritet === 'sredniy' ? 'checked' : ''} disabled><label> Средний (стандартный)</label></div>
-                                <div><input type="radio" name="m_prioritet" value="visokiy" ${z.prioritet === 'visokiy' ? 'checked' : ''} disabled><label> Высокий</label></div>
+                                <div><input type="radio" name="m_prioritet" value="nizkiy" ${d.prioritet === 'nizkiy' ? 'checked' : ''} disabled><label> Низкий (плановый)</label></div>
+                                <div><input type="radio" name="m_prioritet" value="sredniy" ${d.prioritet === 'sredniy' ? 'checked' : ''} disabled><label> Средний (стандартный)</label></div>
+                                <div><input type="radio" name="m_prioritet" value="visokiy" ${d.prioritet === 'visokiy' ? 'checked' : ''} disabled><label> Высокий</label></div>
                             </div>
                         </div>
                         <div class="m_col">
                             <div class="text_20p zag2"><b>Срок предоставления доступа</b></div>
                             <div class="radio-group">
-                                <div><input type="radio" name="m_srok" value="bessrochno" ${z.srok === 'bessrochno' ? 'checked' : ''} disabled><label> Бессрочно</label></div>
-                                <div><input type="radio" name="m_srok" value="1mes" ${z.srok === '1mes' ? 'checked' : ''} disabled><label> 1 месяц</label></div>
-                                <div><input type="radio" name="m_srok" value="3mes" ${z.srok === '3mes' ? 'checked' : ''} disabled><label> 3 месяца</label></div>
-                                <div><input type="radio" name="m_srok" value="6mes" ${z.srok === '6mes' ? 'checked' : ''} disabled><label> 6 месяцев</label></div>
-                                <div><input type="radio" name="m_srok" value="1god" ${z.srok === '1god' ? 'checked' : ''} disabled><label> 1 год</label></div>
+                                <div><input type="radio" name="m_srok" value="bessrochno" ${d.srok === 'bessrochno' ? 'checked' : ''} disabled><label> Бессрочно</label></div>
+                                <div><input type="radio" name="m_srok" value="1mes" ${d.srok === '1mes' ? 'checked' : ''} disabled><label> 1 месяц</label></div>
+                                <div><input type="radio" name="m_srok" value="3mes" ${d.srok === '3mes' ? 'checked' : ''} disabled><label> 3 месяца</label></div>
+                                <div><input type="radio" name="m_srok" value="6mes" ${d.srok === '6mes' ? 'checked' : ''} disabled><label> 6 месяцев</label></div>
+                                <div><input type="radio" name="m_srok" value="1god" ${d.srok === '1god' ? 'checked' : ''} disabled><label> 1 год</label></div>
                             </div>
                         </div>
                         <div class="m_col">
                             <div class="text_20p zag2"><b>Дата</b></div>
-                            <div class="text_20p">${z.data || ''}</div>
+                            <div class="text_20p">${d.data || ''}</div>
                         </div>
                     </div>
                 </div>
@@ -105,10 +71,37 @@ document.addEventListener('click', (e) => {
                         <div class="tex2 text_36p"><b>Цель и комментарии</b></div>
                     </div>
                     <div class="row">
-                        <div class="field"><label class="text_20p"><b>Цели</b></label><div class="text_20p">${z.goals || ''}</div></div>
-                        <div class="field"><label class="text_20p"><b>Комментарии</b></label><div class="text_20p">${z.komm || ''}</div></div>
+                        <div class="field"><label class="text_20p"><b>Цели</b></label><div class="text_20p">${d.goals || ''}</div></div>
+                        <div class="field"><label class="text_20p"><b>Комментарии</b></label><div class="text_20p">${d.komm || ''}</div></div>
                     </div>
                 </div>
+
+                ${isAdmin ? `
+                <div class="for_4blok_form">
+                    <div class="zag_rod">
+                        <div class="dek number_fon text_48p"><b>4</b></div>
+                        <div class="tex2 text_36p"><b>Статус заявки</b></div>
+                    </div>
+
+                    <div class="text_20p" style="margin-bottom: 20px;">
+                        <b>Текущий статус:</b>
+                        <span class="${statusClass}">${statusText}</span>
+                    </div>
+
+                    <form method="POST" action="index.php" class="status-form">
+                        <input type="hidden" name="id" value="${d.id}">
+                        <input type="hidden" name="set_status" value="1">
+
+                        <button type="submit" name="status" value="1" class="btn-status btn-ok">
+                            ✔ Положительно
+                        </button>
+
+                        <button type="submit" name="status" value="0" class="btn-status btn-no">
+                            ✘ Отрицательно
+                        </button>
+                    </form>
+                </div>
+                ` : ''}
             </div>
         `;
         document.getElementById('modal').classList.add('aktivno');

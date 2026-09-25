@@ -60,3 +60,21 @@ a{ color: black; text-decoration: none;}
 .karta_foot{margin-left: 45px; margin-top: 83px; width: 473px; height: 163px; background-image: url(./img_kontakt/karta.png);}
 .fon_knop_foot{width: 328px; height: 44px; border-radius: 12px;margin-left: 125px;margin-top: 31px; background-color: #163658;}
 /*конец футера*/
+/* ===== Кнопка выхода ===== */
+.knop_vihod {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    margin-left: 20px;
+    margin-top: 25px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url(./img_kontakt/exit.png);  
+    transition: opacity 0.2s;
+}
+.knop_vihod:hover {
+    opacity: 0.7;
+}
